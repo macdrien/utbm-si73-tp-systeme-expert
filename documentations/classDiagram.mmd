@@ -1,0 +1,18 @@
+classDiagram
+    Principal <|-- Hypotheses
+    Principal <|-- Systeme
+    Systeme <|-- Equation
+    class Equation {
+        +List premisses
+        +String conclusion
+        +estPremissesVide()
+        +recupererConclusion()
+    }
+    class Systeme {
+        +List equations
+    }
+    class Hypotheses {
+        +List hypotheses
+        +recupererHypotheses()
+        +ajouterHypothese(element)
+    }
