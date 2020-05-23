@@ -1,0 +1,13 @@
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.exe
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.deps.json
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.runtimeconfig.json
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.runtimeconfig.dev.json
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.dll
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\bin\Debug\netcoreapp3.1\Systeme_expert.pdb
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.csprojAssemblyReference.cache
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.csproj.CoreCompileInputs.cache
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.AssemblyInfoInputs.cache
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.AssemblyInfo.cs
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.dll
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.pdb
+C:\workspace\github\macdrien\utbm\utbm-si73-tp-systeme-expert\Systeme_expert\Systeme_expert\obj\Debug\netcoreapp3.1\Systeme_expert.genruntimeconfig.cache
