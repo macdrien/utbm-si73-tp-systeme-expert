@@ -23,6 +23,14 @@ namespace Systeme_expert
         public List<Element<T>> ListeHypotheses { get; set; }
 
         /// <summary> (Constructor).
+        /// Initialize Hypotheses with a an empty list of Element of type T
+        /// </summary>
+        public Hypotheses()
+        {
+            ListeHypotheses = new List<Element<T>>();
+        }
+
+        /// <summary> (Constructor).
         /// Initialize Hypotheses with a list of Element of type T
         /// </summary>
         /// 
@@ -52,9 +60,32 @@ namespace Systeme_expert
             ListeHypotheses.Add(new Element<T>(hypothese));
         }
 
+        /// <summary>
+        /// Test if the current hypotheses object contains the given element.
+        /// </summary>
+        /// 
+        /// <param name="toTest">The element to search in hypotheses</param>
+        /// 
+        /// <returns>
+        /// True if the element is in the list.
+        /// False else.
+        /// </returns>
         public bool Contains(Element<T> toTest)
         {
             return ListeHypotheses.Contains(toTest);
+        }
+
+        /// <summary>
+        /// Test if hypotheses is empty.
+        /// </summary>
+        /// 
+        /// <returns>
+        /// True if hypotheses is empty.
+        /// False else.
+        /// </returns>
+        public bool IsEmpty()
+        {
+            return ListeHypotheses.Count == 0;
         }
 
         public override string ToString()

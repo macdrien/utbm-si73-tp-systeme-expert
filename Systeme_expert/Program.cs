@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Systeme_expert
 {
@@ -10,10 +12,38 @@ namespace Systeme_expert
         {
             Console.WriteLine("Start the application!");
 
-            Systeme<string> systeme = genereSysteme();
-            Hypotheses<string> hypotheses = generateHypotheses();
+            Systeme<string> systeme;
+            Hypotheses<string> hypotheses;
 
-            systeme.SolveWithHypotheses(hypotheses);
+            if (args.Length != 2)
+            {
+                systeme = genereSysteme();
+                hypotheses = generateHypotheses();
+            }
+            else
+            {
+                Console.WriteLine("Lecture des fichiers:\n" + args[0] + "\n" + args[1]);
+                systeme = GenerateSystemeFromFile(args[0]);
+                hypotheses = GenerateHypothesesFromFile(args[1]);
+            }
+
+            if (systeme != null && hypotheses != null)
+            {
+                Console.WriteLine("---------------------------\n" + 
+                    "Before the algorithm :\n" +
+                    systeme.ToString() + "\n" +
+                    hypotheses.ToString());
+
+                systeme.SolveWithHypotheses(hypotheses);
+
+                Console.WriteLine("---------------------------\n" +
+                    "After the algorithm :\n" +
+                    systeme.ToString() + "\n" +
+                    hypotheses.ToString());
+            }
+
+            Console.WriteLine("---------------------------\n" + 
+                "End of the application!");
         }
 
         /// <summary>
@@ -73,6 +103,102 @@ namespace Systeme_expert
                         new Element<string>("D") 
                     }
                 );
+        }
+
+        /// <summary>
+        /// Generate a systeme from a file.
+        /// </summary>
+        /// 
+        /// <param name="systemeFilePath">The file to read's path.</param>
+        /// 
+        /// <returns>
+        /// The created systeme object.
+        /// Null if the file can not be read of if an error occured during the file reading.
+        /// </returns>
+        static Systeme<string> GenerateSystemeFromFile(string systemeFilePath)
+        {
+            try
+            {
+                string[] systemeFileLines = System.IO.File.ReadAllLines(systemeFilePath);
+
+                Systeme<string> systeme = new Systeme<string>();
+
+                foreach (string line in systemeFileLines)
+                {
+                    List<ElementEquation<string>> premissesEquations = new List<ElementEquation<string>>();
+
+                    string currentWord = "";
+                    int separatorPremissesAndConclusionIndex = 0;
+
+                    // Read premisses
+                    for (int counter = 0; counter < line.Length && line[counter] != '='; counter++)
+                    {
+                        if (line[counter] == '+' || line[counter + 1] == '=')
+                        {
+                            premissesEquations.Add(new ElementEquation<string>(currentWord.TrimStart().TrimEnd()));
+                            currentWord = "";
+                        }
+                        else
+                            currentWord += line[counter];
+
+                        if (counter < line.Length - 1 && line[counter + 1] == '=')
+                            separatorPremissesAndConclusionIndex = counter + 1;
+                    }
+
+                    // Read conclusion
+                    string conclusion = "";
+                    for(int counter = separatorPremissesAndConclusionIndex + 1; counter < line.Length; counter++)
+                    {
+                        conclusion += line[counter];
+                    }
+
+                    Element<string> conclusionEquation = new Element<string>(conclusion.TrimStart().TrimEnd());
+
+                    systeme.Equations.Add(
+                        new Equation<string>(premissesEquations, conclusionEquation));
+                }
+
+                return systeme.Equations.Count != 0 ? systeme : null;
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error during the system's file reading : " + exception.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Generate a hypotheses from a file.
+        /// </summary>
+        /// 
+        /// <param name="hypothesesFilePath">The file to read's path.</param>
+        /// 
+        /// <returns>
+        /// The created hypotheses object.
+        /// Null if the file can not be read of if an error occured during the file reading.
+        /// </returns>
+        static Hypotheses<string> GenerateHypothesesFromFile(string hypothesesFilePath)
+        {
+            try
+            {
+                string[] hypothesesFileLines = System.IO.File.ReadAllLines(hypothesesFilePath);
+
+                Hypotheses<string> hypotheses = new Hypotheses<string>();
+
+                foreach (string line in hypothesesFileLines)
+                    hypotheses.ListeHypotheses.Add(
+                        new Element<string>(line.TrimStart().TrimEnd())
+                    );
+
+                return !hypotheses.IsEmpty() ? hypotheses : null;
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error during the hypotheses's file reading : " + exception.ToString());
+                return null;
+            }
         }
     }
 }

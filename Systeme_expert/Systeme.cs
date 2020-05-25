@@ -18,6 +18,14 @@ namespace Systeme_expert
         public List<Equation<T>> Equations { get; set; }
 
         /// <summary> (Constructor).
+        /// Initialize a new System with an empty equation list
+        /// </summary>
+        public Systeme() 
+        {
+            Equations = new List<Equation<T>>();
+        }
+
+        /// <summary> (Constructor).
         /// Initialize a new System with an equation list
         /// </summary>
         /// 
@@ -52,10 +60,6 @@ namespace Systeme_expert
 
             List<Element<T>> hypothesesList = hypotheses.ListeHypotheses.ToList();
 
-            Console.WriteLine("Before the algorithm :\n" +
-                ToString() + "\n" +
-                hypotheses.ToString());
-
             do
             {
                 oldHypotheses = new Hypotheses<T>(hypotheses.ListeHypotheses.ToList());
@@ -74,17 +78,9 @@ namespace Systeme_expert
                     }
                 }
 
-                Console.WriteLine("After an iteration of the algorithm :\n" +
-                    ToString() + "\n" +
-                    hypotheses.ToString());
-
                 hypothesesList = hypotheses.ListeHypotheses.ToList();
 
             } while (!hypotheses.Equals(oldHypotheses));
-
-            Console.WriteLine("After the algorithm :\n" +
-                ToString() + "\n" +
-                hypotheses.ToString());
 
             return this;
         }
