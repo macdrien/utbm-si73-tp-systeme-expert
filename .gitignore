@@ -4,5 +4,5 @@
 .vscode
 
 # Bin and Object folders
-bin
-obj
+Systeme_expert/bin
+Systeme_expert/obj
