@@ -20,7 +20,7 @@
 
 ## 1.1. Contributeur
 
-- Macdrien (Owner du repository).
+- [Macdrien](https://www.github.com/macdrien) (Owner du repository).
 
 ## 1.2. Documentation
 
@@ -146,7 +146,7 @@ La v0.1.0 est un premier exécutable qui utilise l'exemple présent dans la sect
 
 ### 1.7.2. V0.2.0
 
-Semblable à la V0.2.0 en apparence. Le changement est interne. Dans cette version, la méthode implémentant l'algorithme a été déplacée dans la classe Systeme et a été rendu générique.
+Semblable à la V0.1.0 en apparence. Le changement est interne. Dans cette version, la méthode implémentant l'algorithme a été déplacée dans la classe Systeme et a été rendu générique.
 
 ### 1.7.3. V1.0.0
 
