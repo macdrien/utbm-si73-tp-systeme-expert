@@ -129,14 +129,19 @@ namespace Systeme_expert
 
                     string currentWord = "";
                     int separatorPremissesAndConclusionIndex = 0;
+                    ElementStateEnum stateFlag = ElementStateEnum.PresentWithoutNegation;
 
                     // Read premisses
                     for (int counter = 0; counter < line.Length && line[counter] != '='; counter++)
                     {
                         if (line[counter] == '+' || line[counter + 1] == '=')
                         {
-                            premissesEquations.Add(new ElementEquation<string>(currentWord.TrimStart().TrimEnd()));
+                            premissesEquations.Add(new ElementEquation<string>(currentWord.TrimStart().TrimEnd(), stateFlag));
                             currentWord = "";
+                            stateFlag = ElementStateEnum.PresentWithoutNegation;
+                        }
+                        else if (currentWord.TrimStart() == "" && line[counter] == '!') {
+                            stateFlag = ElementStateEnum.PresentWithNegation;
                         }
                         else
                             currentWord += line[counter];
@@ -186,10 +191,16 @@ namespace Systeme_expert
 
                 Hypotheses<string> hypotheses = new Hypotheses<string>();
 
-                foreach (string line in hypothesesFileLines)
-                    hypotheses.ListeHypotheses.Add(
-                        new Element<string>(line.TrimStart().TrimEnd())
-                    );
+                foreach (string line in hypothesesFileLines) {
+                    string toAdd = line.TrimStart().TrimEnd();
+
+                    if (toAdd[0] == '!')
+                        hypotheses.ListeHypotheses.Add(
+                            new Element<string>(toAdd.Substring(1), ElementStateEnum.PresentWithNegation));
+                    else
+                        hypotheses.ListeHypotheses.Add(
+                            new Element<string>(toAdd, ElementStateEnum.PresentWithoutNegation));
+                }
 
                 return !hypotheses.IsEmpty() ? hypotheses : null;
 

@@ -43,10 +43,11 @@ namespace Systeme_expert
         /// True if all the premisses of the list are always true.
         /// False if at least one premisses is not always true.
         /// </returns>
-        public bool IsPremissesEmpty()
+        public bool ArePremissesTrue()
         {
             foreach (ElementEquation<T> premisse in Premisses)
-                if (!premisse.AlwaysTrue)
+                if ((premisse.AlwaysTrue && premisse.State == ElementStateEnum.PresentWithoutNegation) ||
+                    (!premisse.AlwaysTrue && premisse.State == ElementStateEnum.PresentWithNegation))
                     return false;
 
             return true;
@@ -77,9 +78,13 @@ namespace Systeme_expert
             
             for (int counter = 0; counter < Premisses.Count; counter++)
             {
+                if (Premisses[counter].State == ElementStateEnum.PresentWithNegation)
+                    toReturn += "!";
+
                 toReturn += Premisses[counter].Libelle.ToString();
 
-                if (Premisses[counter].AlwaysTrue)
+                if ((Premisses[counter].AlwaysTrue && Premisses[counter].State == ElementStateEnum.PresentWithoutNegation) || 
+                    (!Premisses[counter].AlwaysTrue && Premisses[counter].State == ElementStateEnum.PresentWithNegation))
                     toReturn += "(true)";
 
                 toReturn += " ";

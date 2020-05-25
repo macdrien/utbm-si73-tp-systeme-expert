@@ -5,7 +5,11 @@
     },
     "Systeme_expert_with_example_file": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\systeme_from_readme C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\hypotheses_from_readme"
+      "commandLineArgs": "C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\systeme_from_exercice_in_readme C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\hypotheses_from_exercice_in_readme"
+    },
+    "Systeme_expert_with_not_example_file": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\systeme_from_regles_in_readme C:\\workspace\\github\\macdrien\\utbm\\utbm-si73-tp-systeme-expert\\file_examples\\hypotheses_from_regles_in_readme"
     }
   }
 }

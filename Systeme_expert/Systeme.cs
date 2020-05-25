@@ -73,7 +73,7 @@ namespace Systeme_expert
                         if (premisse != null)
                             premisse.AlwaysTrue = true;
 
-                        if (equation.IsPremissesEmpty() && !hypotheses.Contains(equation.Conclusion))
+                        if (equation.ArePremissesTrue() && !hypotheses.Contains(equation.Conclusion))
                             hypotheses.AddHypothese(equation.Conclusion);
                     }
                 }
