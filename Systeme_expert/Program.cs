@@ -11,45 +11,9 @@ namespace Systeme_expert
             Console.WriteLine("Start the application!");
 
             Systeme<string> systeme = genereSysteme();
-            Hypotheses<string> hypotheses = generateHypotheses(),
-                oldHypotheses;
+            Hypotheses<string> hypotheses = generateHypotheses();
 
-            List<Element<string>> hypothesesList = hypotheses.ListeHypotheses.ToList();
-
-            Console.WriteLine("Before the algorithm :\n" +
-                systeme.ToString() + "\n" +
-                hypotheses.ToString());
-
-            do
-            {
-                oldHypotheses = new Hypotheses<string>(hypotheses.ListeHypotheses.ToList());
-
-                foreach (Element<string> hypothese in hypothesesList)
-                {
-                    foreach (Equation<string> equation in systeme.Equations)
-                    {
-                        ElementEquation<string> premisse = equation.DoesPremissesContainsElement(hypothese);
-
-                        if (premisse != null)
-                            premisse.AlwaysTrue = true;
-
-                        if (equation.IsPremissesEmpty() && !hypotheses.Contains(equation.Conclusion))
-                            hypotheses.AddHypothese(equation.Conclusion);
-                    }
-                }
-
-                Console.WriteLine("After an iteration of the algorithm :\n" +
-                    systeme.ToString() + "\n" +
-                    hypotheses.ToString());
-
-                hypothesesList = hypotheses.ListeHypotheses.ToList();
-
-            } while (!hypotheses.Equals(oldHypotheses));
-
-            Console.WriteLine("After the algorithm :\n" +
-                systeme.ToString() + "\n" +
-                hypotheses.ToString());
-
+            systeme.SolveWithHypotheses(hypotheses);
         }
 
         /// <summary>

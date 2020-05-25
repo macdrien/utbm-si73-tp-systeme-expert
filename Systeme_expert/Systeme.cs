@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Systeme_expert
@@ -36,6 +37,49 @@ namespace Systeme_expert
             toReturn += "}";
 
             return toReturn;
+        }
+
+        public Systeme<T> SolveWithHypotheses(Hypotheses<T> hypotheses)
+        {
+            Hypotheses<T> oldHypotheses;
+
+            List<Element<T>> hypothesesList = hypotheses.ListeHypotheses.ToList();
+
+            Console.WriteLine("Before the algorithm :\n" +
+                ToString() + "\n" +
+                hypotheses.ToString());
+
+            do
+            {
+                oldHypotheses = new Hypotheses<T>(hypotheses.ListeHypotheses.ToList());
+
+                foreach (Element<T> hypothese in hypothesesList)
+                {
+                    foreach (Equation<T> equation in Equations)
+                    {
+                        ElementEquation<T> premisse = equation.DoesPremissesContainsElement(hypothese);
+
+                        if (premisse != null)
+                            premisse.AlwaysTrue = true;
+
+                        if (equation.IsPremissesEmpty() && !hypotheses.Contains(equation.Conclusion))
+                            hypotheses.AddHypothese(equation.Conclusion);
+                    }
+                }
+
+                Console.WriteLine("After an iteration of the algorithm :\n" +
+                    ToString() + "\n" +
+                    hypotheses.ToString());
+
+                hypothesesList = hypotheses.ListeHypotheses.ToList();
+
+            } while (!hypotheses.Equals(oldHypotheses));
+
+            Console.WriteLine("After the algorithm :\n" +
+                ToString() + "\n" +
+                hypotheses.ToString());
+
+            return this;
         }
     }
 }
