@@ -15,7 +15,7 @@ namespace Systeme_expert
         /// <summary>
         /// The label of the element.
         /// </summary>
-        T Libelle { get; set; }
+        public T Libelle { get; set; }
 
         /// <summary> (Constructor).
         ///  Initialize a new element with an defined element.
@@ -39,6 +39,11 @@ namespace Systeme_expert
         public bool Equals(Element<T> toCompare)
         {
             return this.Libelle.Equals(toCompare.Libelle);
+        }
+
+        public override string ToString()
+        {
+            return Libelle.ToString();
         }
     }
 }

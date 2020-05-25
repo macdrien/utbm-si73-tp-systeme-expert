@@ -23,7 +23,7 @@ namespace Systeme_expert
         /// 
         /// <param name="libelle">The label which will intialize the ElementEqualtion</param>
         /// <param name="alwaysTrue">The alwaysTrue flag which will intialize the ElementEqualtion</param>
-        public ElementEquation(T libelle, bool alwaysTrue) : base(libelle)
+        public ElementEquation(T libelle, bool alwaysTrue = false) : base(libelle)
         {
             this.AlwaysTrue = alwaysTrue;
         }

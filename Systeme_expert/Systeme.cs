@@ -14,7 +14,7 @@ namespace Systeme_expert
         /// <summary>
         /// The system equation list.
         /// </summary>
-        List<Equation<T>> Equations { get; set; }
+        public List<Equation<T>> Equations { get; set; }
 
         /// <summary> (Constructor).
         /// Initialize a new System with an equation list
@@ -24,6 +24,18 @@ namespace Systeme_expert
         public Systeme(List<Equation<T>> equations)
         {
             this.Equations = equations;
+        }
+
+        public override string ToString()
+        {
+            string toReturn = "Systeme : {\n";
+
+            for (int counter = 0; counter < Equations.Count; counter++)
+                toReturn += "    " + Equations[counter].ToString() + "\n";
+
+            toReturn += "}";
+
+            return toReturn;
         }
     }
 }

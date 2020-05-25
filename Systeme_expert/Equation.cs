@@ -14,13 +14,13 @@ namespace Systeme_expert
         /// <summary>
         /// The elements on the left of the equation.
         /// </summary>
-        List<ElementEquation<T>> Premisses { get; set; }
+        public List<ElementEquation<T>> Premisses { get; set; }
 
         /// <summary>
         /// The result of the equation.
         /// If all Premisses are true then Conclusion is true.
         /// </summary>
-        Element<T> Conclusion { get; set; }
+        public Element<T> Conclusion { get; set; }
 
         /// <summary>
         /// Initialize a new Equation with premisses and a conclusion
@@ -50,6 +50,47 @@ namespace Systeme_expert
                     return false;
 
             return true;
+        }
+
+        /// <summary>
+        /// Test if premisses contains an element
+        /// </summary>
+        /// 
+        /// <param name="toTest">The element to search</param>
+        /// 
+        /// <returns>
+        /// The found element if toTest exists in Premisses.
+        /// Null else.
+        /// </returns>
+        public ElementEquation<T> DoesPremissesContainsElement(Element<T> toTest)
+        {
+            foreach(ElementEquation<T> premisse in Premisses)
+                if (premisse.Equals(toTest))
+                    return premisse;
+
+            return null;
+        }
+
+        public override string ToString()
+        {
+            string toReturn = "";
+            
+            for (int counter = 0; counter < Premisses.Count; counter++)
+            {
+                toReturn += Premisses[counter].Libelle.ToString();
+
+                if (Premisses[counter].AlwaysTrue)
+                    toReturn += "(true)";
+
+                toReturn += " ";
+
+                if (counter < Premisses.Count - 1)
+                    toReturn += "+ ";
+            }
+
+            toReturn += "=> " + Conclusion.ToString();
+
+            return toReturn;
         }
     }
 }
