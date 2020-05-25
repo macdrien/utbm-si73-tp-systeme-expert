@@ -23,13 +23,13 @@
 
 **Règles**:
 
-1. (not) reservoirVide (and) pharesFonctionnent (and) (not) moteurDemarre => problemeBougie$
+1. (not) reservoirVide (and) pharesFonctionnent (and) (not) moteurDemarre => problemeBougie
 2. (not) moteurDemarre (and) (not) pharesFonctionnent => problemeBatterie
 3. (not) moteurDemarre (and) pharesFonctionnent => problemeStarter
 
 **Moteur d'inférences**:
 
-P (and) (P => Q)$ alors on peut déduire Q.
+P (and) (P => Q) alors on peut déduire Q.
 
 ---
 
