@@ -39,6 +39,13 @@ namespace Systeme_expert
             return toReturn;
         }
 
+        /// <summary> (Constructor).
+        /// Solve the current system with the given hypotheses.
+        /// </summary>
+        /// 
+        /// <param name="hypotheses">Hypotheses used to solve the system.</param>
+        ///
+        /// <returns>The system after the algorithm.</returns>
         public Systeme<T> SolveWithHypotheses(Hypotheses<T> hypotheses)
         {
             Hypotheses<T> oldHypotheses;
