@@ -20,6 +20,7 @@
     - [1.8.1. V0.1.0](#181-v010)
     - [1.8.2. V0.2.0](#182-v020)
     - [1.8.3. V1.0.0](#183-v100)
+    - [1.8.3. V2.0.0](#183-v200)
 
 ## 1.1. Contributeur
 
@@ -213,3 +214,7 @@ Semblable à la V0.1.0 en apparence. Le changement est interne. Dans cette versi
 
 Première version complète.  
 Cette version permet le passage en paramètre (au lancement de l'application) de deux fichiers. Le premier comprend le systeme à résoudre. Le second fichier fourni les hypothèses à tester.
+
+### 1.8.3. V2.0.0
+
+Ajoute la possibilité d'avoir des prémisses négatives.
