@@ -16,8 +16,11 @@ namespace Systeme_expert
         /// <summary>
         /// Flag to see if the element is always true.
         /// 
-        /// If the Not flag is false then ElementEquation is true when it is given by an hypothese.
-        /// If the Not flag is true then ElementEquation is true when it is not given by an hypothese.
+        /// If the State flag indicate a negation, it does not impact the AlwaysTrue flag.
+        /// 
+        /// Example:
+        /// If Element = A and is always true, then A is true
+        /// If Element = (not)A and is always true, then A is false.
         /// </summary>
         public bool AlwaysTrue { get; set; }
 

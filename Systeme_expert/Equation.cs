@@ -47,8 +47,7 @@ namespace Systeme_expert
         public bool ArePremissesTrue()
         {
             foreach (ElementEquation<T> premisse in Premisses)
-                if ((premisse.AlwaysTrue && premisse.State == ElementStateEnum.PresentWithoutNegation) ||
-                    (!premisse.AlwaysTrue && premisse.State == ElementStateEnum.PresentWithNegation))
+                if (!premisse.AlwaysTrue)
                     return false;
 
             return true;
