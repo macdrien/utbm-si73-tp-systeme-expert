@@ -59,6 +59,9 @@ namespace Systeme_expert
         public void AddHypothese(T hypothese)
         {
             ListeHypotheses.Add(new Element<T>(hypothese));
+
+            if (ListeHypotheses.Count > 1)
+                ListeHypotheses.Sort();
         }
 
         /// <summary>
@@ -87,6 +90,27 @@ namespace Systeme_expert
         public bool IsEmpty()
         {
             return ListeHypotheses.Count == 0;
+        }
+        
+        /// <summary>
+        /// Add all elements from systeme.premisses which are not in hypotheses.
+        /// Add them with the State "Absent"
+        /// </summary>
+        /// 
+        /// <param name="systeme">The base system.</param>
+        public void AddAbsentHypothesesFromSysteme(Systeme<T> systeme)
+        {
+            foreach (Equation<T> equation in systeme.Equations)
+                foreach (ElementEquation<T> premisse in equation.Premisses)
+                {
+                    // Search the premisse in hypotheses
+                    bool isPremissePresent = false;
+                    for (int counter = 0; counter < ListeHypotheses.Count && !isPremissePresent; counter++)
+                        isPremissePresent = ListeHypotheses[counter].Libelle.Equals(premisse.Libelle);
+
+                    if (!isPremissePresent)
+                        ListeHypotheses.Add(new Element<T>(premisse.Libelle, ElementStateEnum.Absent));
+                }
         }
 
         public override string ToString()
