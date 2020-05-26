@@ -86,6 +86,8 @@ namespace Systeme_expert
 
             if (State == ElementStateEnum.PresentWithNegation)
                 toReturn += "!";
+            else if (State == ElementStateEnum.Absent)
+                toReturn += "(absent)";
             
             return toReturn + Libelle.ToString();
         }
