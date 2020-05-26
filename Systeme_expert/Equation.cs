@@ -83,10 +83,6 @@ namespace Systeme_expert
 
                 toReturn += Premisses[counter].Libelle.ToString();
 
-                if ((Premisses[counter].AlwaysTrue && Premisses[counter].State == ElementStateEnum.PresentWithoutNegation) || 
-                    (!Premisses[counter].AlwaysTrue && Premisses[counter].State == ElementStateEnum.PresentWithNegation))
-                    toReturn += "(true)";
-
                 toReturn += " ";
 
                 if (counter < Premisses.Count - 1)
