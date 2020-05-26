@@ -67,16 +67,17 @@ namespace Systeme_expert
 
                 foreach (Element<T> hypothese in hypothesesList)
                 {
-                    foreach (Equation<T> equation in Equations)
-                    {
-                        ElementEquation<T> premisse = equation.DoesPremissesContainsElement(hypothese);
+                    if (hypothese.State != ElementStateEnum.Absent)
+                        foreach (Equation<T> equation in Equations)
+                        {
+                            ElementEquation<T> premisse = equation.DoesPremissesContainsElement(hypothese);
 
-                        if (premisse != null)
-                            premisse.AlwaysTrue = true;
+                            if (premisse != null)
+                                premisse.AlwaysTrue = true;
 
-                        if (equation.ArePremissesTrue() && !hypotheses.Contains(equation.Conclusion))
-                            hypotheses.AddHypothese(equation.Conclusion);
-                    }
+                            if (equation.ArePremissesTrue() && !hypotheses.Contains(equation.Conclusion))
+                                hypotheses.AddHypothese(equation.Conclusion);
+                        }
                 }
 
                 hypothesesList = hypotheses.ListeHypotheses.ToList();
