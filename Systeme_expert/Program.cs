@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -156,13 +156,17 @@ namespace Systeme_expert
                     }
 
                     // Read conclusion
+                    stateFlag = ElementStateEnum.PresentWithoutNegation;
                     string conclusion = "";
                     for(int counter = separatorPremissesAndConclusionIndex + 1; counter < line.Length; counter++)
                     {
+                        if (currentWord.TrimStart() == "" && line[counter] == '!')
+                            stateFlag = ElementStateEnum.PresentWithNegation;
+
                         conclusion += line[counter];
                     }
 
-                    Element<string> conclusionEquation = new Element<string>(conclusion.TrimStart().TrimEnd());
+                    Element<string> conclusionEquation = new Element<string>(conclusion.TrimStart().TrimEnd(), stateFlag);
 
                     systeme.Equations.Add(
                         new Equation<string>(premissesEquations, conclusionEquation));
