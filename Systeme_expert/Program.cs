@@ -26,6 +26,8 @@ namespace Systeme_expert
                 systeme = GenerateSystemeFromFile(args[0]);
                 hypotheses = GenerateHypothesesFromFile(args[1]);
             }
+            
+            hypotheses.AddAbsentHypothesesFromSysteme(systeme);
 
             if (systeme != null && hypotheses != null)
             {
