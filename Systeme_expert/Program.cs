@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -140,11 +140,14 @@ namespace Systeme_expert
                             currentWord = "";
                             stateFlag = ElementStateEnum.PresentWithoutNegation;
                         }
-                        else if (currentWord.TrimStart() == "" && line[counter] == '!') {
+                        else if (currentWord.TrimStart() == "" && line[counter] == '!')
+                        {
                             stateFlag = ElementStateEnum.PresentWithNegation;
                         }
                         else
+                        {
                             currentWord += line[counter];
+                        }
 
                         if (counter < line.Length - 1 && line[counter + 1] == '=')
                             separatorPremissesAndConclusionIndex = counter + 1;
