@@ -60,6 +60,7 @@ namespace Systeme_expert
         /// 1 if:
         ///     - CompareTo the current Element's Libelle and the toCompare's Libelle return a positive number.
         ///     - The both Libelle are equals and the current element's State is after the toCompare's state.
+        ///     - toCompare is null
         /// 0 if the current element and toCompare are equals.
         /// -1 if:
         ///     - CompareTo the current Element's Libelle and the toCompare's Libelle return a negative number.
@@ -67,6 +68,9 @@ namespace Systeme_expert
         /// </returns>
         public int CompareTo(Element<T> toCompare)
         {
+            if (toCompare == null)
+                return 1;
+
             if (this.Equals(toCompare))
                 return 0;
 
