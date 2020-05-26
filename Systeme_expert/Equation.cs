@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +10,7 @@ namespace Systeme_expert
     /// 
     /// <typeparam name="T">The type of the elements of the equation.</typeparam>
     class Equation<T>
+        where T : IComparable
     {
         /// <summary>
         /// The elements on the left of the equation.

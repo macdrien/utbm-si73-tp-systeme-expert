@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace Systeme_expert
     /// 
     /// <typeparam name="T">The type of the objects to analyse.</typeparam>
     class Systeme<T>
+        where T : IComparable
     {
         /// <summary>
         /// The system equation list.

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +11,7 @@ namespace Systeme_expert
     /// 
     /// <typeparam name="T">The type of the element.</typeparam>
     class Element<T>
+        where T : IComparable
     {
         /// <summary>
         /// The label of the element.
@@ -47,6 +48,36 @@ namespace Systeme_expert
         {
             return this.Libelle.Equals(toCompare.Libelle) && 
                 this.State == toCompare.State;
+        }
+
+        /// <summary>
+        /// Compare the current instance with an other Element<T>.
+        /// </summary>
+        /// 
+        /// <param name="toCompare">The second element to compare</param>
+        /// 
+        /// <returns>
+        /// 1 if:
+        ///     - CompareTo the current Element's Libelle and the toCompare's Libelle return a positive number.
+        ///     - The both Libelle are equals and the current element's State is after the toCompare's state.
+        /// 0 if the current element and toCompare are equals.
+        /// -1 if:
+        ///     - CompareTo the current Element's Libelle and the toCompare's Libelle return a negative number.
+        ///     - The both Libelle are equals and the current element's State is before the toCompare's state.
+        /// </returns>
+        public int CompareTo(Element<T> toCompare)
+        {
+            if (this.Equals(toCompare))
+                return 0;
+
+            if (this.Libelle.Equals(toCompare.Libelle))
+                // Organize elements with same Libelle by State order
+                if (this.State < toCompare.State)
+                    return -1;
+                else
+                    return 1;
+
+            return this.Libelle.CompareTo(toCompare);
         }
 
         public override string ToString()

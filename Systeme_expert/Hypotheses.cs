@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -16,6 +16,7 @@ namespace Systeme_expert
     /// It must be the same as the type of the System's elements.
     /// </typeparam>
     class Hypotheses<T>
+        where T : IComparable
     {
         /// <summary>
         /// The hypotheses list

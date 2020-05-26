@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Transactions;
@@ -11,6 +11,7 @@ namespace Systeme_expert
     /// 
     /// <typeparam name="T">The type of the element</typeparam>
     class ElementEquation<T> : Element<T>
+        where T : IComparable
     {
         /// <summary>
         /// Flag to see if the element is always true.
