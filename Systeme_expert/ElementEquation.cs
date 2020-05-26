@@ -41,5 +41,15 @@ namespace Systeme_expert
         {
             this.AlwaysTrue = alwaysTrue;
         }
+
+        public override string ToString()
+        {
+            string toString = this.ToString();
+
+            if (this.AlwaysTrue)
+                toString += "(true)";
+
+            return toString;
+        }
     }
 }
