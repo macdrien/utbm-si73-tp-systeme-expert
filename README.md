@@ -12,13 +12,14 @@
   - [1.5. Architecture](#15-architecture)
   - [1.6. Utilisation de l'executable de la version 1.0.0](#16-utilisation-de-lexecutable-de-la-version-100)
     - [1.6.1. Fichiers de definition du systeme](#161-fichiers-de-definition-du-systeme)
-  - [1.6. Utilisation de l'executable de la version 2.0.0](#16-utilisation-de-lexecutable-de-la-version-200)
-    - [1.6.1. Fichiers de definition du systeme](#161-fichiers-de-definition-du-systeme-1)
-    - [1.6.2. Fichiers de definition des hypotheses](#162-fichiers-de-definition-des-hypotheses)
-  - [1.7. Releases](#17-releases)
-    - [1.7.1. V0.1.0](#171-v010)
-    - [1.7.2. V0.2.0](#172-v020)
-    - [1.7.3. V1.0.0](#173-v100)
+    - [1.6.2. Fichiers de definition du systeme](#162-fichiers-de-definition-du-systeme)
+  - [1.7. Utilisation de l'executable de la version 2.0.0](#17-utilisation-de-lexecutable-de-la-version-200)
+    - [1.7.1. Fichiers de definition du systeme](#171-fichiers-de-definition-du-systeme)
+    - [1.7.2. Fichiers de definition des hypotheses](#172-fichiers-de-definition-des-hypotheses)
+  - [1.8. Releases](#18-releases)
+    - [1.8.1. V0.1.0](#181-v010)
+    - [1.8.2. V0.2.0](#182-v020)
+    - [1.8.3. V1.0.0](#183-v100)
 
 ## 1.1. Contributeur
 
@@ -126,7 +127,26 @@ Les prémisses et conclusions doivent respecter les critères suivants:
 
 Au cours du processus, toutes les espaces pré/post-élément (prémisses et conclusions) sont retirés.
 
-## 1.6. Utilisation de l'executable de la version 2.0.0
+### 1.6.2. Fichiers de definition du systeme
+
+Le fichier doit être de la forme suivante:
+
+```plaintext
+premisse 1 + premisse_2 = conclusion1
+premisse3 + premisse-4 = CONCLUSION2
+```
+
+Les prémisses et conclusions doivent respecter les critères suivants:
+
+- Les caractères '+' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('+' et '=' étant des séparateurs dans la lecture du systeme).
+- Chaque ligne correspond à une équation du système.
+- Une équation respecte la forme suivante:
+  - Chaque prémisse est séparée d'un '+'
+  - Les prémisses et la conclusion sont séparés d'un caractère '='
+  - Il n'y a qu'une unique conclusion par équation.  
+    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '+' et '=') elles seront assimilées à une unique conclusion.
+
+## 1.7. Utilisation de l'executable de la version 2.0.0
 
 **Note importante**: L'exécutable de l'application ne peut être utilisé que sous Windows.
 
@@ -143,7 +163,7 @@ Des examples de fichiers à fournir sont disponible dans le dossier file_example
 
 Les fichiers doivent être de la forme suivante:
 
-### 1.6.1. Fichiers de definition du systeme
+### 1.7.1. Fichiers de definition du systeme
 
 Le fichier doit être de la forme suivante:
 
@@ -165,7 +185,7 @@ Les prémisses et conclusions doivent respecter les critères suivants:
 
 Au cours du processus, toutes les espaces pré/post-élément (prémisses et conclusions) sont retirés.
 
-### 1.6.2. Fichiers de definition des hypotheses
+### 1.7.2. Fichiers de definition des hypotheses
 
 Le fichier doit être de la forme suivante:
 
@@ -177,19 +197,19 @@ HyPotheSE2
 Chaque ligne du fichier est assimilée a une unique hypothèse.  
 Au cours du processus, toutes les espaces pré/post-hypothèses sont retirés.
 
-## 1.7. Releases
+## 1.8. Releases
 
 Ici sont décrites les realeses disponibles. Elles sont accessibles dans le dossier releases. Chaque release contient un executable de l'application.
 
-### 1.7.1. V0.1.0
+### 1.8.1. V0.1.0
 
 La v0.1.0 est un premier exécutable qui utilise l'exemple présent dans la section [Exercice](#12-exercice) de ce document.
 
-### 1.7.2. V0.2.0
+### 1.8.2. V0.2.0
 
 Semblable à la V0.1.0 en apparence. Le changement est interne. Dans cette version, la méthode implémentant l'algorithme a été déplacée dans la classe Systeme et a été rendu générique.
 
-### 1.7.3. V1.0.0
+### 1.8.3. V1.0.0
 
 Première version complète.  
 Cette version permet le passage en paramètre (au lancement de l'application) de deux fichiers. Le premier comprend le systeme à résoudre. Le second fichier fourni les hypothèses à tester.
