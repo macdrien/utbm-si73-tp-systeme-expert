@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace Systeme_expert
 {
+    enum UsedCharacters
+    {
+        premissesSeparator = '*',
+        conclusionSeparator = '=',
+        negationMarker = '!'
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -139,7 +146,8 @@ namespace Systeme_expert
                             currentWord = "";
                             stateFlag = ElementStateEnum.PresentWithoutNegation;
                         }
-                        else if (currentWord.TrimStart() == "" && line[counter] == '!')
+                        else if (currentWord.TrimStart() == "" &&
+                            UsedCharacters.negationMarker.Equals(line[counter]))
                         {
                             stateFlag = ElementStateEnum.PresentWithNegation;
                         }
@@ -148,7 +156,8 @@ namespace Systeme_expert
                             currentWord += line[counter];
                         }
 
-                        if (counter < line.Length - 1 && line[counter + 1] == '=')
+                        if (counter < line.Length - 1 && 
+                                UsedCharacters.conclusionSeparator.Equals(line[counter + 1]))
                             separatorPremissesAndConclusionIndex = counter + 1;
                     }
 
@@ -157,7 +166,8 @@ namespace Systeme_expert
                     string conclusion = "";
                     for(int counter = separatorPremissesAndConclusionIndex + 1; counter < line.Length; counter++)
                     {
-                        if (currentWord.TrimStart() == "" && line[counter] == '!')
+                        if (currentWord.TrimStart() == "" && 
+                                UsedCharacters.negationMarker.Equals(line[counter]))
                             stateFlag = ElementStateEnum.PresentWithNegation;
 
                         conclusion += line[counter];
@@ -200,7 +210,7 @@ namespace Systeme_expert
                 foreach (string line in hypothesesFileLines) {
                     string toAdd = line.TrimStart().TrimEnd();
 
-                    if (toAdd[0] == '!')
+                    if (UsedCharacters.negationMarker.Equals(toAdd[0]))
                         hypotheses.ListeHypotheses.Add(
                             new Element<string>(toAdd.Substring(1), ElementStateEnum.PresentWithNegation));
                     else
