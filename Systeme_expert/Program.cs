@@ -56,26 +56,26 @@ namespace Systeme_expert
             List<ElementEquation<string>> 
                 premissesEquation1 = new List<ElementEquation<string>> 
                 {
-                    new ElementEquation<string>("A"),
-                    new ElementEquation<string>("B")
+                    new ElementEquation<string>("A", ElementStateEnum.PresentWithoutNegation),
+                    new ElementEquation<string>("B", ElementStateEnum.PresentWithoutNegation)
                 },
                 premissesEquation2 = new List<ElementEquation<string>> 
                 {
-                    new ElementEquation<string>("C"),
-                    new ElementEquation<string>("E"),
-                    new ElementEquation<string>("D")
+                    new ElementEquation<string>("C", ElementStateEnum.PresentWithoutNegation),
+                    new ElementEquation<string>("E", ElementStateEnum.PresentWithoutNegation),
+                    new ElementEquation<string>("D", ElementStateEnum.PresentWithoutNegation)
                 },
                 premissesEquation3 = new List<ElementEquation<string>> 
                 {
-                    new ElementEquation<string>("X"),
-                    new ElementEquation<string>("D")
+                    new ElementEquation<string>("X", ElementStateEnum.PresentWithoutNegation),
+                    new ElementEquation<string>("D", ElementStateEnum.PresentWithoutNegation)
                 };
 
             // Conclusion des équations
             Element<string> 
-                conclusionEquation1 = new Element<string>("X"),
-                conclusionEquation2 = new Element<string>("F"),
-                conclusionEquation3 = new Element<string>("Z");
+                conclusionEquation1 = new Element<string>("X", ElementStateEnum.PresentWithoutNegation),
+                conclusionEquation2 = new Element<string>("F", ElementStateEnum.PresentWithoutNegation),
+                conclusionEquation3 = new Element<string>("Z", ElementStateEnum.PresentWithoutNegation);
 
             // Equations
             Equation<string>
@@ -97,9 +97,9 @@ namespace Systeme_expert
             return new Hypotheses<string>(
                 new List<Element<string>> 
                     { 
-                        new Element<string>("A"), 
-                        new Element<string>("B"), 
-                        new Element<string>("D") 
+                        new Element<string>("A", ElementStateEnum.PresentWithoutNegation), 
+                        new Element<string>("B", ElementStateEnum.PresentWithoutNegation), 
+                        new Element<string>("D", ElementStateEnum.PresentWithoutNegation) 
                     }
                 );
         }

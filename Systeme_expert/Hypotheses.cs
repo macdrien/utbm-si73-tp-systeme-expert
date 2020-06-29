@@ -115,10 +115,19 @@ namespace Systeme_expert
 
             for (int counter = 0; counter < ListeHypotheses.Count; counter++)
             {
-                toReturn += ListeHypotheses[counter].ToString();
+                if (ListeHypotheses[counter].State != ElementStateEnum.Absent)
+                {
+                    if (counter > 0 && toReturn[toReturn.Length - 2] != ',')
+                        toReturn += " , ";
 
-                if (counter < ListeHypotheses.Count - 1)
-                    toReturn += " , ";
+                    toReturn += ListeHypotheses[counter].ToString();
+
+                    //if (counter < ListeHypotheses.Count - 1 &&
+                    //        ListeHypotheses[counter + 1].State != ElementStateEnum.Absent)
+                    //    toReturn += " , ";
+
+                }
+
             }
 
             toReturn += " }";

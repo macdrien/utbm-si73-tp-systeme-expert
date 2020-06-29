@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>Systeme_expert_with_not_example_file</ActiveDebugProfile>
+    <ActiveDebugProfile>Systeme_expert</ActiveDebugProfile>
   </PropertyGroup>
 </Project>
