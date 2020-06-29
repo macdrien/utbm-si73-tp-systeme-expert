@@ -133,7 +133,7 @@ namespace Systeme_expert
                     // Read premisses
                     for (int counter = 0; counter < line.Length && line[counter] != '='; counter++)
                     {
-                        if (line[counter] == '+' || line[counter + 1] == '=')
+                        if (line[counter] == Equation<string>.PremisseSeparator || line[counter + 1] == '=')
                         {
                             premissesEquations.Add(new ElementEquation<string>(currentWord.TrimStart().TrimEnd(), stateFlag));
                             currentWord = "";

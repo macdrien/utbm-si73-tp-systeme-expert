@@ -11,6 +11,8 @@ namespace Systeme_expert
     class Equation<T>
         where T : IComparable
     {
+        public const char PremisseSeparator = '*';
+
         /// <summary>
         /// The elements on the left of the equation.
         /// </summary>
@@ -85,7 +87,7 @@ namespace Systeme_expert
                 toReturn += " ";
 
                 if (counter < Premisses.Count - 1)
-                    toReturn += "+ ";
+                    toReturn += PremisseSeparator + " ";
             }
 
             toReturn += "=> " + Conclusion.ToString();
