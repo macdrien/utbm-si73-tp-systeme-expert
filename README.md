@@ -112,19 +112,19 @@ Les fichiers doivent être de la forme suivante:
 Le fichier doit être de la forme suivante:
 
 ```plaintext
-premisse 1 + premisse_2 = conclusion1
-premisse3 + premisse-4 = CONCLUSION2
+premisse 1 * premisse_2 = conclusion1
+premisse3 * premisse-4 = CONCLUSION2
 ```
 
 Les prémisses et conclusions doivent respecter les critères suivants:
 
-- Les caractères '+' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('+' et '=' étant des séparateurs dans la lecture du systeme).
+- Les caractères '*' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('*' et '=' étant des séparateurs dans la lecture du systeme).
 - Chaque ligne correspond à une équation du système.
 - Une équation respecte la forme suivante
-  - Chaque prémisse est séparée d'un '+'
+  - Chaque prémisse est séparée d'un '*'
   - Les prémisses et la conclusion sont séparés d'un caractère '='
   - Il n'y a qu'une unique conclusion par équation.  
-    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '+' et '=') elles seront assimilées à une unique conclusion.
+    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '*' et '=') elles seront assimilées à une unique conclusion.
 
 Au cours du processus, toutes les espaces pré/post-élément (prémisses et conclusions) sont retirés.
 
@@ -133,19 +133,19 @@ Au cours du processus, toutes les espaces pré/post-élément (prémisses et con
 Le fichier doit être de la forme suivante:
 
 ```plaintext
-premisse 1 + premisse_2 = conclusion1
-premisse3 + premisse-4 = CONCLUSION2
+premisse 1 * premisse_2 = conclusion1
+premisse3 * premisse-4 = CONCLUSION2
 ```
 
 Les prémisses et conclusions doivent respecter les critères suivants:
 
-- Les caractères '+' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('+' et '=' étant des séparateurs dans la lecture du systeme).
+- Les caractères '*' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('*' et '=' étant des séparateurs dans la lecture du systeme).
 - Chaque ligne correspond à une équation du système.
 - Une équation respecte la forme suivante:
-  - Chaque prémisse est séparée d'un '+'
+  - Chaque prémisse est séparée d'un '*'
   - Les prémisses et la conclusion sont séparés d'un caractère '='
   - Il n'y a qu'une unique conclusion par équation.  
-    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '+' et '=') elles seront assimilées à une unique conclusion.
+    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '*' et '=') elles seront assimilées à une unique conclusion.
 
 ## 1.7. Utilisation de l'executable de la version 2.0.0
 
@@ -169,20 +169,20 @@ Les fichiers doivent être de la forme suivante:
 Le fichier doit être de la forme suivante:
 
 ```plaintext
-premisse 1 + !premisse_2 = conclusion1
-!premisse3 + premisse-4 = CONCLUSION2
+premisse 1 * !premisse_2 = conclusion1
+!premisse3 * premisse-4 = CONCLUSION2
 ```
 
 Les prémisses et conclusions doivent respecter les critères suivants:
 
-- Les caractères '!', '+' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('!', '+' et '=' étant des séparateurs dans la lecture du systeme).
+- Les caractères '!', '*' et '=' sont interdit. Si ils sont passé alors la lecture correcte du système de sera pas garantie ('!', '*' et '=' étant des séparateurs dans la lecture du systeme).
 - Chaque ligne correspond à une équation du système.
 - Une équation respecte la forme suivante
   - Une prémisse ayant un '!' devant elle est négative.
-  - Chaque prémisse est séparée d'un '+'
+  - Chaque prémisse est séparée d'un '*'
   - Les prémisses et la conclusion sont séparés d'un caractère '='
   - Il n'y a qu'une unique conclusion par équation.  
-    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '!', '+' et '=') elles seront assimilées à une unique conclusion.
+    => Si plusieurs conclusions sont séparés d'un caractères quelconque (y compris '!', '*' et '=') elles seront assimilées à une unique conclusion.
 
 Au cours du processus, toutes les espaces pré/post-élément (prémisses et conclusions) sont retirés.
 
