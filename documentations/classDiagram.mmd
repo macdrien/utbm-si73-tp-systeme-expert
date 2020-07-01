@@ -1,7 +1,10 @@
 classDiagram
-    Principal <|-- Hypotheses
-    Principal <|-- Systeme
-    Systeme <|-- Equation
+    Principal <-- Hypotheses
+    Principal <-- Systeme
+    Systeme <-- Equation
+    Element <|-- ElementEquation
+    Hypotheses <-- Element
+    Equation <-- ElementEquation
     class Equation {
         +List premisses
         +String conclusion
@@ -10,9 +13,16 @@ classDiagram
     }
     class Systeme {
         +List equations
+        +solveWithHypotheses(Hypotheses<T> hypotheses)
     }
     class Hypotheses {
         +List hypotheses
-        +recupererHypotheses()
-        +ajouterHypothese(element)
+        +ajouterHypothese(Element<T> element)
+    }
+    class Element {
+        +T Libelle
+        +ElementStateEnum State
+    }
+    class ElementEquation {
+        +boolean AlwaysTrue
     }
