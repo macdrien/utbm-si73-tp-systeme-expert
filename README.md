@@ -88,6 +88,37 @@ Hypothèses:
 
 ![Diagramme de classe](./documentations/classDiagram.png)
 
+```mermaid
+classDiagram
+    Principal <-- Hypotheses
+    Principal <-- Systeme
+    Systeme <-- Equation
+    Element <|-- ElementEquation
+    Hypotheses <-- Element
+    Equation <-- ElementEquation
+    class Equation {
+        +List premisses
+        +String conclusion
+        +estPremissesVide()
+        +recupererConclusion()
+    }
+    class Systeme {
+        +List equations
+        +solveWithHypotheses(Hypotheses<T> hypotheses)
+    }
+    class Hypotheses {
+        +List hypotheses
+        +ajouterHypothese(Element<T> element)
+    }
+    class Element {
+        +T Libelle
+        +ElementStateEnum State
+    }
+    class ElementEquation {
+        +boolean AlwaysTrue
+    }
+```
+
 ---
 
 ## 1.6. Utilisation de l'executable de la version 1.0.0
